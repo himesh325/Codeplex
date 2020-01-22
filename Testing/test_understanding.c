@@ -1,60 +1,49 @@
-/*
+/* Efficient Program to Compute Sum of Series 1/1! + 1/2! + 1/3! + 1/4! + .. + 1/n! */
 
-You have been given an array of size N consisting of integers. In addition you have been given an element M you need to find and print the index of the last occurrence of this element M in the array if it exists in it, otherwise print -1. Consider this array to be 1 indexed.
-
-Input Format:
-
-The first line consists of 2 integers N and M denoting the size of the array and the element to be searched for in the array respectively . The next line contains N space separated integers denoting the elements of of the array.
-
-Output Format
-
-Print a single integer denoting the index of the last occurrence of integer M in the array if it exists, otherwise print -1.
-*/
-
+/* step 1 is finding the factorial of a number */
 
 #include<stdio.h>
 
+
+int factorial(int number)
+{
+    int fact=1;
+   for(int i=1;i<=number;i++)
+   {
+       fact= fact *i;
+   }
+   return fact;
+    
+   
+}
+
+double sum(int number)
+{
+    double sum = 0;
+    
+    for(int i=1;i<=number;i++)
+    {
+        sum += 1.0/factorial(i);
+    
+    }
+    return sum;
+    
+    
+}
+
 int main(void)
 {
-   int M,N;
-   
-   int target=0;
-   int flag =0;
-   scanf("%d %d",&N,&M);
-   
-
+    int N;
+    double result;
+    scanf("%d",&N);
     
-    int List[N];
+    printf("%d\t",factorial(N));
     
-      for(int i=0;i<N;i++)
-      {
-          scanf("%d",&List[i]);
-      }
-      
-      for(int i=0;i<N;i++)
-      {
-          if(List[i]==M)
-          {
-              target=i+1;
-          }
-          else
-          {
-              flag =1;
-          }
-          
-      }
-      
-      if (target == 0)
-      {
-          printf("-1");
-      }
-      else
-      {
-          printf("%d",target);
-      }
-      
-      
-      
-      
-      return 0;
+    result=sum(N);
+    printf("%lf",result);
+    
+    
+    
+    return 0;
+    
 }

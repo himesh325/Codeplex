@@ -1,14 +1,32 @@
-#include <stdio.h> 
-  
-unsigned int Log2n(unsigned int n) 
-{ 
-    return (n > 1) ? 1 + Log2n(n / 2) : 0; 
-} 
-  
-int main(void) 
-{ 
-    unsigned int n = 64; 
-    printf("%u", Log2n(n)); 
-    getchar(); 
-    return 0; 
-} 
+//factorial of a number
+#include<stdio.h>
+
+
+int factorial(int number)
+{
+	
+	if(number>=1)
+	{
+		
+		return number*factorial(number-1);
+	}
+	else
+	{
+	return 1;
+    }
+	
+}
+int main(void)
+{
+	int n;
+	int result;
+	scanf("%d",&n);
+	
+	result=factorial(n);
+	printf("%d",result);
+	
+	
+	
+	return 0;
+}
+
